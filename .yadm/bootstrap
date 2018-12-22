@@ -2,6 +2,44 @@
 
 system_type=$(uname -s)
 
+install_xcode_clt() {
+  # adapted from https://brew.sh/
+  TASK_START=$SECONDS
+  TASK_NAME=${TASKS[0]}
+  MESSAGE_SKIP="skipping - command line tools are already installed"
+  MESSAGE_INSTALL="installing command line tools (this may take a while)"
+  MESSAGE_SUCCESS="success - command line tools installation finished"
+  MESSAGE_FALLBACK="cli installation failed, falling back to gui installation"
+
+  xcode-select -p &> /dev/null
+  if [ $? -eq 0 ]; then
+    logger "${MESSAGE_SKIP}"
+  else
+    logger "${MESSAGE_INSTALL}"
+
+    touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+    softwareupdate -i "$(softwareupdate -l | grep -B 1 -E "Command Line (Developer|Tools)" | awk -F"*" '/^ +\\*/ {print $2}' | sed 's/^ *//' | tail -n1)" | indent
+    rm -f /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+    sudo xcode-select --switch "/Library/Developer/CommandLineTools" | indent
+
+    xcode-select -p &> /dev/null
+    if [ $? -eq 0 ]; then
+      logger "${MESSAGE_SUCCESS}" "$(($SECONDS - $TASK_START))"
+    else
+      logger "${MESSAGE_FALLBACK}"
+
+      sudo xcode-select --install | indent
+      echo -n "press any key when the installation has completed "; read $KEY; echo -en "\033[1A\033[2K"
+
+      xcode-select -p &> /dev/null
+      [[ $? -eq 0 ]] && logger "${MESSAGE_SUCCESS}" $(($SECONDS - $TASK_START))
+    fi
+  fi
+  
+   xcode-select -p &> /dev/null; [[ $? -eq 0 ]] || kill
+}
+
+# Mac specific configurations
 if [ "$system_type" = "Darwin" ]; then
 
   # install homebrew if it's missing
@@ -14,5 +52,22 @@ if [ "$system_type" = "Darwin" ]; then
     echo "Updating homebrew bundle"
     brew bundle --global
   fi
+ 
+ # Install z-plugs
+  if [[ ! -d ~/.zplug ]];then
+    echo "installing zplug"
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+  else
+    echo "zplug already installed"
+  fi
+  
+  # Install vim-plugs
+  if command -v vim >/dev/null 2>&1; then
+  echo "Bootstraping Vim"
+  vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+  fi
+  
+  # Install Xcode-clt
+  install_xcode_clt
 
 fi
