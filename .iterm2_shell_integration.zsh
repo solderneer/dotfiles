@@ -1,0 +1,1 @@
+/Users/solderneer/.dotfiles/homedir/.iterm2_shell_integration.zsh
