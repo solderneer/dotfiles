@@ -15,6 +15,8 @@ silent! if plug#begin()
   Plug 'itchyny/lightline.vim'
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'taohexxx/lightline-solarized'
 
   " ignore these on older versions of vim
   if v:version >= 703
@@ -27,3 +29,30 @@ silent! if plug#begin()
 
   call plug#end()
 endif
+
+set laststatus=2
+set background=dark
+
+syntax enable
+colorscheme solarized
+
+" Setting backspace settings to be more convinient
+set backspace=indent,eol,start
+
+" Configuring lightline for solarized
+let g:lightline = {
+	\ 'colorscheme': 'lightline_solarized',
+	\ }
+
+" turn absolute line numbers on
+:set number
+:set nu
+
+" Clear sign column color
+highlight clear SignColumn
+
+" Indent settings
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
