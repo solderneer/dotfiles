@@ -17,7 +17,6 @@ BULLETTRAIN_PROMPT_ORDER=(
   perl
   ruby
   virtualenv
-  nvm
   aws
   go
   rust
@@ -53,3 +52,6 @@ fi
 
 zplug load
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Run fortune
+fortune
