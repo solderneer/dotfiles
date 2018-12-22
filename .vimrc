@@ -8,10 +8,13 @@ endif
 silent! if plug#begin()
 
   Plug 'airblade/vim-gitgutter'
-  Plug 'c9s/perlomni.vim', { 'for': 'perl' }
-  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
   Plug 'vim-syntastic/syntastic'
   Plug 'yggdroot/indentLine'
+  Plug 'itchyny/lightline.vim'
+  Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+  Plug 'editorconfig/editorconfig-vim'
 
   " ignore these on older versions of vim
   if v:version >= 703
