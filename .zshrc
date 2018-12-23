@@ -23,6 +23,7 @@ BULLETTRAIN_DIR_EXTENDED=0
 
 # Make sure to use double quotes to prevent shell expansion
 zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "plugins/git",  from:oh-my-zsh, as:plugin
