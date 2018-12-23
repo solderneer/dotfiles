@@ -14,19 +14,12 @@ BULLETTRAIN_PROMPT_ORDER=(
   custom
   dir
   screen
-  perl
-  ruby
-  virtualenv
-  aws
-  go
-  rust
-  elixir
   git
-  hg
   cmd_exec_time
 )
 
 BULLETTRAIN_PROMPT_SEPARATE_LINE=false
+BULLETTRAIN_DIR_EXTENDED=0
 
 # Make sure to use double quotes to prevent shell expansion
 zplug "zsh-users/zsh-completions"
