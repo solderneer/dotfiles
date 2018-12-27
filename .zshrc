@@ -31,6 +31,9 @@ zplug "plugins/git",  from:oh-my-zsh, as:plugin
 setopt prompt_subst # Make sure prompt is able to be generated properly.
 zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
 
+zplug "joel-porquet/zsh-dircolors-solarized"
+source ~/.zplug/repos/joel-porquet/zsh-dircolors-solarized/zsh-dircolors-solarized.zsh
+
 zplug "b4b4r07/emoji-cli", use:emoji-cli.zsh
 # Add a bunch more of your favorite packages!
 
