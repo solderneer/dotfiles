@@ -8,9 +8,8 @@ endif
 silent! if plug#begin()
 
   Plug 'airblade/vim-gitgutter'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-  Plug 'vim-syntastic/syntastic'
   Plug 'yggdroot/indentLine'
   Plug 'itchyny/lightline.vim'
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
