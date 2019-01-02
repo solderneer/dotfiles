@@ -7,15 +7,27 @@ endif
 " declare plugins
 silent! if plug#begin()
 
+  " Git
   Plug 'airblade/vim-gitgutter'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
+  
+  " Convenience
   Plug 'yggdroot/indentLine'
   Plug 'itchyny/lightline.vim'
+  
+  " Directory navigation
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+  
+  " Editor config
   Plug 'editorconfig/editorconfig-vim'
+  
+  " Vim theme coloring
   Plug 'altercation/vim-colors-solarized'
   Plug 'taohexxx/lightline-solarized'
+
+  " Docker
+  Plug 'docker/docker'
 
   " ignore these on older versions of vim
   if v:version >= 703
