@@ -14,8 +14,14 @@ silent! if plug#begin()
   Plug 'yggdroot/indentLine'
   Plug 'itchyny/lightline.vim'
 
-  " Code Completion/Checking
+  " Code Syntax Checking
   Plug 'scrooloose/syntastic'
+
+  " Code Completion using deoplete
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  let g:deoplete#enable_at_startup = 1
   
   " Directory navigation
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
