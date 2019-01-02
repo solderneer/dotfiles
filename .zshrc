@@ -45,5 +45,7 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# History saving for zsh-autosuggestions
+SAVEHIST=300
+HISTFILE=~/.zsh_history
