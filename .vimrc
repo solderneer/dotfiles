@@ -17,12 +17,9 @@ silent! if plug#begin()
   " Code Syntax Checking
   Plug 'scrooloose/syntastic'
 
-  " Code Completion using deoplete
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-  let g:deoplete#enable_at_startup = 1
-  
+  " Code Completion using YouCompleteMe
+  Plug 'valloric/youcompleteme'
+    
   " Directory navigation
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -37,6 +34,10 @@ silent! if plug#begin()
 
   " Docker
   Plug 'docker/docker'
+
+  " Rust support
+  Plug 'rust-lang/rust.vim'
+  let g:rustfmt_autosave = 1
 
   " ignore these on older versions of vim
   if v:version >= 703
