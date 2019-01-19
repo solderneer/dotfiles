@@ -39,6 +39,9 @@ silent! if plug#begin()
   Plug 'rust-lang/rust.vim'
   let g:rustfmt_autosave = 1
 
+  " Vue Support
+  Plug 'posva/vim-vue'
+
   " ignore these on older versions of vim
   if v:version >= 703
     Plug 'gorodinskiy/vim-coloresque'
@@ -88,3 +91,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Fix for vue syntax highlighting
+autocmd FileType vue syntax sync fromstart
+let g:vue_disable_pre_processors=1
