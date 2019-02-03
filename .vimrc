@@ -22,10 +22,7 @@ silent! if plug#begin()
   " Plug 'scrooloose/syntastic'
   Plug 'w0rp/ale'
   Plug 'maximbaz/lightline-ale'
-
-  " Code Completion using YouCompleteMe
-  Plug 'valloric/youcompleteme'
-    
+ 
   " Directory navigation
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -74,12 +71,38 @@ syntax enable
 colorscheme solarized
 
 " Setting backspace settings to be more convinient
-set backspace=indent,eol,start
+set backspace=indent,eol,start	
 
-" Configuring lightline for solarized
+" LIGHTLINE CONFIG
+let g:lightline#ale#indicator_checking = "\uf110 "
+let g:lightline#ale#indicator_warnings = "\uf071 "
+let g:lightline#ale#indicator_errors = "\uf05e "
+let g:lightline#ale#indicator_ok = "\uf00c "
+
 let g:lightline = {
-	\ 'colorscheme': 'lightline_solarized',
-	\ }
+    \ 'colorscheme': 'lightline_solarized',
+		\ 'component': {
+		\   'lineinfo': ' %3l:%-2v',
+		\ },
+		\ 'component_function': {
+		\   'readonly': 'LightlineReadonly',
+		\   'fugitive': 'LightlineFugitive'
+		\ },
+		\ 'separator': { 'left': '', 'right': '' },
+		\ 'subseparator': { 'left': '', 'right': '' }
+		\ }
+
+function! LightlineReadonly()
+  return &readonly ? '' : ''
+endfunction
+
+function! LightlineFugitive()
+  if exists('*fugitive#head')
+    let branch = fugitive#head()
+    return branch !=# '' ? ''.branch : ''
+  endif
+  return ''
+endfunction
 
 " Configuring lightline for ALE
 let g:lightline.component_expand = {
@@ -119,16 +142,6 @@ filetype plugin indent on
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-" Syntastic config
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
 
 " Language autoformatting config
 let g:rustfmt_autosave = 1
