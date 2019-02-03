@@ -1,5 +1,6 @@
 " ALE pre load config
 let g:ale_completion_enabled = 1
+let g:ale_linters = {'rust': ['rls']}
 
 " Language autoformatting config
 let g:rustfmt_autosave = 1

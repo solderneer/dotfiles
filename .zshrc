@@ -1,9 +1,3 @@
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
-fi
-
 # Essential
 source ~/.zplug/init.zsh
 
@@ -19,7 +13,6 @@ BULLETTRAIN_PROMPT_ORDER=(
 )
 
 BULLETTRAIN_PROMPT_SEPARATE_LINE=false
-BULLETTRAIN_DIR_EXTENDED=0
 
 # Make sure to use double quotes to prevent shell expansion
 zplug "zsh-users/zsh-completions"
@@ -59,6 +52,7 @@ export PATH="$PATH":"$HOME/bin/nvim-osx64/bin"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias vim="$HOME/bin/nvim-osx64/bin/nvim"
 
 setopt hist_ignore_all_dups 
 setopt hist_reduce_blanks 
