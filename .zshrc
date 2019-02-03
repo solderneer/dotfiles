@@ -50,6 +50,15 @@ zplug load
 SAVEHIST=100000
 HISTFILE=~/.zsh_history
 
+# Some me specific shortcuts
+export PROJECTS=~/Documents/Projects
+export PATH="$PATH:/Users/solderneer/bin/flutter/bin"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
 setopt hist_ignore_all_dups # remove older duplicate entries from history
 setopt hist_reduce_blanks # remove superfluous blanks from history items
 setopt inc_append_history # save history entries as soon as they are entered
