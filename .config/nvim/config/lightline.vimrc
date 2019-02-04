@@ -1,9 +1,9 @@
 " LIGHTLINE config
 
-let g:lightline#ale#indicator_checking = "\uf110 "
-let g:lightline#ale#indicator_warnings = "\uf071 "
-let g:lightline#ale#indicator_errors = "\uf05e "
-let g:lightline#ale#indicator_ok = "\uf00c "
+let g:indicator_checking = "\uf110 "
+let g:indicator_warnings = "\uf071 "
+let g:indicator_errors = "\uf05e "
+let g:indicator_ok = "\uf00c "
 
 let g:lightline = {
     \ 'colorscheme': 'lightline_solarized',
@@ -12,7 +12,7 @@ let g:lightline = {
 		\ },
 		\ 'component_function': {
 		\   'readonly': 'LightlineReadonly',
-		\   'fugitive': 'LightlineFugitive'
+		\   'fugitive': 'LightlineFugitive',
 		\ },
 		\ 'separator': { 'left': '', 'right': '' },
 		\ 'subseparator': { 'left': '', 'right': '' }
@@ -30,29 +30,50 @@ function! LightlineFugitive()
   return ''
 endfunction
 
-" Configuring lightline for ALE
+function! LC_warning_count()
+  let current_buf_number = bufnr('%')
+  let qflist = getqflist()
+  let current_buf_diagnostics = filter(qflist, {index, dict -> dict['bufnr'] == current_buf_number && dict['type'] == 'W'})
+  let count = len(current_buf_diagnostics)
+  return count > 0 && g:LanguageClient_loaded ? printf(g:indicator_warnings . '%d', count) : ''
+endfunction
+
+function! LC_error_count()
+  let current_buf_number = bufnr('%')
+  let qflist = getqflist()
+  let current_buf_diagnostics = filter(qflist, {index, dict -> dict['bufnr'] == current_buf_number && dict['type'] == 'E'})
+  let count = len(current_buf_diagnostics)
+  return count > 0 && g:LanguageClient_loaded ? printf(g:indicator_errors . '%d', count) : ''
+endfunction
+
+function! LC_ok()
+  let current_buf_number = bufnr('%')
+  let qflist = getqflist()
+  let current_buf_diagnostics = filter(qflist, {index, dict -> dict['bufnr'] == current_buf_number && (dict['type'] == 'E' || dict['type'] == 'W')})
+  let count = len(current_buf_diagnostics)
+  return count == 0 ? g:indicator_ok : ''
+endfunction
+
 let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \  'gitbranch': 'fugitive#head',
+      \  'warning_count': 'LC_warning_count',
+      \  'error_count': 'LC_error_count',
+      \  'linter_ok': 'LC_ok',
       \ }
 
 let g:lightline.component_type = {
-      \     'linter_checking': 'left',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
+      \     'warning_count': 'warning',
+      \     'error_count': 'error',
       \     'linter_ok': 'left',
       \ }
 
 let g:lightline.active = {
       \ 'right': [
-      \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+      \ [ 'error_count', 'warning_count', 'linter_ok' ],
       \ [ 'lineinfo' ],
       \ [ 'percent' ],
       \ [ 'fileformat', 'fileencoding', 'filetype' ]],
       \ 'left': [
       \ [ 'mode', 'paste' ],
-      \ [ 'gitbranch', 'readonly', 'filename', 'modified' ]] }
+      \ [ 'fugitive', 'readonly', 'filename', 'modified' ]] }
 
+autocmd User LanguageClientDiagnosticsChanged call lightline#update()

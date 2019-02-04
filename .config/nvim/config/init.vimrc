@@ -8,21 +8,24 @@ Plug 'tpope/vim-fugitive'
 Plug 'yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 
-" Code Syntax Checking
-" Plug 'scrooloose/syntastic'
-Plug 'w0rp/ale'
-Plug 'maximbaz/lightline-ale'
+" Language client integration
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" Autocomplete async
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Directory navigation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Editor config
 Plug 'editorconfig/editorconfig-vim'
 
 " Vim theme coloring
-Plug 'altercation/vim-colors-solarized'
+Plug 'iCyMind/NeoSolarized'
 Plug 'taohexxx/lightline-solarized'
 
 " LANGUAGE SPECIFIC "
