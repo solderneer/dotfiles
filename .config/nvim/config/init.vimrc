@@ -8,6 +8,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 
+" Lightline plugins
+Plug 'solderneer/lightline-languageclient'
+
 " Language client integration
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
