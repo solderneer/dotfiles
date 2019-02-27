@@ -7,6 +7,7 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
       \ 'dart': ['~/.pub-cache/bin/dart_language_server'],
+      \ 'python': ['/usr/local/bin/pyls'],
       \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> ld :call LanguageClient#textDocument_definition()<CR>

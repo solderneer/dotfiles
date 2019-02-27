@@ -46,6 +46,9 @@ Plug 'posva/vim-vue'
 
 " Dart Support
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'reisub0/hot-reload.vim'
+Plug 'hankchiutw/flutter-reload.vim'
+
+" Mustahe and handlebars support
+Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()
