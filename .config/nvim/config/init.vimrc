@@ -48,7 +48,14 @@ Plug 'posva/vim-vue'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'hankchiutw/flutter-reload.vim'
 
+" SQL Support
+Plug 'alcesleo/vim-uppercase-sql'
+Plug 'shmup/vim-sql-syntax'
+
 " Mustahe and handlebars support
 Plug 'mustache/vim-mustache-handlebars'
+
+" TOML support
+Plug 'cespare/vim-toml'
 
 call plug#end()

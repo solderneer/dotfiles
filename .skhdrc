@@ -1,3 +1,6 @@
+:: default : chunkc border::color 0xbbcb4b16
+:: resize @ : chunkc border::color 0xffdc322f
+
 # enter fullscreen mode for the focused container
 alt - f : chunkc tiling::window --toggle fullscreen
 
@@ -26,8 +29,6 @@ shift + alt - j : chunkc tiling::window --warp south
 shift + alt - k : chunkc tiling::window --warp north
 shift + alt - l : chunkc tiling::window --warp east
 
-alt - r : chunkc tiling::desktop --rotate 90
-
 # move focused container to workspace
 shift + alt - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
 shift + alt - p : chunkc tiling::window --send-to-desktop prev
@@ -38,3 +39,18 @@ shift + alt - 3 : chunkc tiling::window --send-to-desktop 3
 shift + alt - 4 : chunkc tiling::window --send-to-desktop 4
 shift + alt - 5 : chunkc tiling::window --send-to-desktop 5
 shift + alt - 6 : chunkc tiling::window --send-to-desktop 6
+
+# Resizing containers:
+alt - r ; resize
+resize < return ; default
+resize < escape ; default
+
+resize < h : chunkc tiling::window --use-temporary-ratio 0.03 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.03 --adjust-window-edge east
+resize < j : chunkc tiling::window --use-temporary-ratio -0.03 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio -0.03 --adjust-window-edge south
+resize < k : chunkc tiling::window --use-temporary-ratio 0.03 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio 0.03 --adjust-window-edge south
+resize < l : chunkc tiling::window --use-temporary-ratio -0.03 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio 0.03 --adjust-window-edge east
+resize < left : chunkc tiling::window --use-temporary-ratio -0.03 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.03 --adjust-window-edge east
+resize < down : chunkc tiling::window --use-temporary-ratio -0.03 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio -0.03 --adjust-window-edge south
+resize < up : chunkc tiling::window --use-temporary-ratio 0.03 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio 0.03 --adjust-window-edge south
+resize < right : chunkc tiling::window --use-temporary-ratio 0.03 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio 0.03 --adjust-window-edge east
+

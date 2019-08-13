@@ -43,8 +43,11 @@ zplug load
 SAVEHIST=100000
 HISTFILE=~/.zsh_history
 
+# Pyenv support
+eval "$(pyenv init -)"
+
 # Some me specific shortcuts
-export PROJECTS=~/Documents/Projects
+export projects=~/Documents/Projects
 export PATH="$PATH":"$HOME/bin/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/bin/nvim-osx64/bin"

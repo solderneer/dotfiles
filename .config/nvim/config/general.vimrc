@@ -46,3 +46,6 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+
+inoremap <C-j> <down>
+inoremap <C-k> <up>
