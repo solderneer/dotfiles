@@ -2,15 +2,15 @@
 source ~/.zplug/init.zsh
 
 # BULLET-TRAIN config
-BULLETTRAIN_PROMPT_ORDER=(
-  time
-  status
-  custom
-  dir
-  screen
-  git
-  cmd_exec_time
-)
+# BULLETTRAIN_PROMPT_ORDER=(
+#   time
+#   status
+#   custom
+#   dir
+#   screen
+#   git
+#   cmd_exec_time
+# )
 
 BULLETTRAIN_PROMPT_SEPARATE_LINE=false
 
@@ -20,12 +20,13 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "plugins/git",  from:oh-my-zsh, as:plugin
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
-setopt prompt_subst # Make sure prompt is able to be generated properly.
-zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
+# disabling the old theme
+# setopt prompt_subst # Make sure prompt is able to be generated properly.
+# zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
 
 zplug "b4b4r07/emoji-cli", use:emoji-cli.zsh
-# Add a bunch more of your favorite packages!
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then
