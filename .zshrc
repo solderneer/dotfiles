@@ -12,7 +12,7 @@ source ~/.zplug/init.zsh
 #   cmd_exec_time
 # )
 
-BULLETTRAIN_PROMPT_SEPARATE_LINE=false
+# BULLETTRAIN_PROMPT_SEPARATE_LINE=false
 
 # Make sure to use double quotes to prevent shell expansion
 zplug "zsh-users/zsh-completions"
@@ -46,6 +46,19 @@ HISTFILE=~/.zsh_history
 
 # Pyenv support
 eval "$(pyenv init -)"
+
+# zsh vi mode
+bindkey -v
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+export KEYTIMEOUT=1
+
 
 # Some me specific shortcuts
 export projects=~/Documents/Projects

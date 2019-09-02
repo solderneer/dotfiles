@@ -7,6 +7,7 @@ Plug 'tpope/vim-fugitive'
 " Convenience
 Plug 'yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
+Plug 'ryanoasis/vim-devicons'
 
 " Lightline plugins
 Plug 'solderneer/lightline-languageclient'
