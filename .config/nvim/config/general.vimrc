@@ -1,10 +1,14 @@
+" Statusline stuff
 set laststatus=2
+
+" Syntax highlighting and color
 set background=dark
 set t_Co=256
 set termguicolors
 
 syntax enable
 colorscheme NeoSolarized
+hi Normal guibg=NONE ctermbg=NONE
 
 " Setting backspace settings to be more convinient
 set backspace=indent,eol,start

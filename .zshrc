@@ -1,18 +1,7 @@
 # Essential
-source ~/.zplug/init.zsh
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# BULLET-TRAIN config
-# BULLETTRAIN_PROMPT_ORDER=(
-#   time
-#   status
-#   custom
-#   dir
-#   screen
-#   git
-#   cmd_exec_time
-# )
-
-# BULLETTRAIN_PROMPT_SEPARATE_LINE=false
 
 # Make sure to use double quotes to prevent shell expansion
 zplug "zsh-users/zsh-completions"
@@ -21,12 +10,6 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "plugins/git",  from:oh-my-zsh, as:plugin
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-
-# disabling the old theme
-# setopt prompt_subst # Make sure prompt is able to be generated properly.
-# zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
-
-zplug "b4b4r07/emoji-cli", use:emoji-cli.zsh
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then
@@ -62,14 +45,14 @@ export KEYTIMEOUT=1
 
 # Some me specific shortcuts
 export projects=~/Documents/Projects
-export PATH="$PATH":"$HOME/bin/flutter/bin"
+export PATH="$PATH":"/usr/local/opt/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/bin/nvim-osx64/bin"
 
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias vim="$HOME/bin/nvim-osx64/bin/nvim"
+alias vim="/usr/local/opt/nvim/bin/nvim"
 
 setopt hist_ignore_all_dups 
 setopt hist_reduce_blanks 

@@ -10,16 +10,20 @@ Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 
 " Lightline plugins
-Plug 'solderneer/lightline-languageclient'
+" Plug 'solderneer/lightline-languageclient'
+Plug 'josa42/vim-lightline-coc'
 
 " Language client integration
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
+
+" Intellisense complete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Autocomplete async
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Directory navigation
 Plug 'junegunn/fzf'
@@ -58,5 +62,8 @@ Plug 'mustache/vim-mustache-handlebars'
 
 " TOML support
 Plug 'cespare/vim-toml'
+
+" Go support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
