@@ -33,8 +33,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'editorconfig/editorconfig-vim'
 
 " Vim theme coloring
-Plug 'iCyMind/NeoSolarized'
-Plug 'taohexxx/lightline-solarized'
+" Plug 'iCyMind/NeoSolarized'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " LANGUAGE SPECIFIC "
 " Docker
@@ -65,5 +65,8 @@ Plug 'cespare/vim-toml'
 
 " Go support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Svelte support
+Plug 'evanleck/vim-svelte'
 
 call plug#end()

@@ -7,7 +7,7 @@ set t_Co=256
 set termguicolors
 
 syntax enable
-colorscheme NeoSolarized
+colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 
 " Setting backspace settings to be more convinient

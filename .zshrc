@@ -10,6 +10,7 @@ zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "plugins/git",  from:oh-my-zsh, as:plugin
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug "dracula/zsh", as:theme
 
 # Install packages that have not been installed yet
 if ! zplug check --verbose; then

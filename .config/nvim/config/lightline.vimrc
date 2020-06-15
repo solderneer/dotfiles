@@ -4,7 +4,7 @@ let g:lightline#coc#indicator_ok = "\uf00c "
 
 " LIGHTLINE config
 let g:lightline = {
- \ 'colorscheme': 'lightline_solarized',
+ \ 'colorscheme': 'dracula',
  \ 'component': {
  \   'lineinfo': ' %3l:%-2v',
  \ },
