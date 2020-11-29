@@ -3,6 +3,7 @@ call plug#begin()
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-conflicted'
 
 " Convenience
 Plug 'yggdroot/indentLine'
@@ -49,6 +50,9 @@ Plug 'rust-lang/rust.vim'
 " Vue Support
 Plug 'posva/vim-vue'
 
+"Jsonnnet SUpport
+Plug 'google/vim-jsonnet'
+
 " Dart Support
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'hankchiutw/flutter-reload.vim'
@@ -68,5 +72,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Svelte support
 Plug 'evanleck/vim-svelte'
+
+" GraphQL support
+Plug 'jparise/vim-graphql'
 
 call plug#end()

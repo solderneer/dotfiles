@@ -4,3 +4,7 @@
 	signingkey = C861C97AAF3D9559
 [commit]
 	gpgsign = true
+[pull]
+	rebase = false
+[alias]
+	conflicted = !nvim +Conflicted
