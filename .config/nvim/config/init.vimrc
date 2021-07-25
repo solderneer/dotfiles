@@ -42,20 +42,20 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'docker/docker'
 
 " Javascript Support
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 " Rust Support
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Vue Support
-Plug 'posva/vim-vue'
+Plug 'posva/vim-vue', { 'for': 'javascript' }
 
 "Jsonnnet SUpport
-Plug 'google/vim-jsonnet'
+Plug 'google/vim-jsonnet', { 'for': 'jsonnet' }
 
 " Dart Support
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'hankchiutw/flutter-reload.vim'
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+Plug 'hankchiutw/flutter-reload.vim', { 'for': 'dart' }
 
 " SQL Support
 Plug 'alcesleo/vim-uppercase-sql'
@@ -75,5 +75,8 @@ Plug 'evanleck/vim-svelte'
 
 " GraphQL support
 Plug 'jparise/vim-graphql'
+
+" Pyenv support
+Plug 'lambdalisue/vim-pyenv'
 
 call plug#end()

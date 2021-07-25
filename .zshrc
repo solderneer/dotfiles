@@ -29,7 +29,12 @@ SAVEHIST=100000
 HISTFILE=~/.zsh_history
 
 # Pyenv support
-eval "$(pyenv init -)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+eval "$(zoxide init zsh)"
 
 # zsh vi mode
 bindkey -v
@@ -50,11 +55,22 @@ export PATH="$PATH":"/usr/local/opt/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/bin/nvim-osx64/bin"
 export PATH="$PATH":"/Users/solderneer/.local/bin"
+export CPATH=`xcrun --show-sdk-path`/usr/include
 
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias vim="/usr/local/opt/nvim/bin/nvim"
+
+# aliasing common unix commands to more modern ones
+alias htop="gtop"
+alias cat="bat"
+alias ls="exa"
+alias du="dust"
+alias df="duf"
+alias find="fd"
+alias ps="procs"
+alias cd="z"
 
 setopt hist_ignore_all_dups 
 setopt hist_reduce_blanks 
@@ -73,3 +89,10 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' group-name '' 
 zstyle ':completion:::::' completer _expand _complete _ignored _approximate
 [ -f "/Users/solderneer/.ghcup/env" ] && source "/Users/solderneer/.ghcup/env" # ghcup-env
+
+# Deno support
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit
+compinit -u
+
+source /Users/solderneer/.config/broot/launcher/bash/br

@@ -44,6 +44,8 @@ noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
+noremap h <nop>
+noremap l <nop>
 
 " Disable Arrow keys in Insert mode
 imap <up> <nop>
