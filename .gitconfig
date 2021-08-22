@@ -1,7 +1,7 @@
 [user]
 	name = Sudharshan
 	email = solderneer@gmail.com
-	signingkey = C861C97AAF3D9559
+	signingkey = 783336110F22E2A7
 [commit]
 	gpgsign = true
 [pull]
