@@ -95,6 +95,4 @@ fpath=(~/.zsh $fpath)
 autoload -Uz compinit
 compinit -u
 
-source /Users/solderneer/.config/broot/launcher/bash/br
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

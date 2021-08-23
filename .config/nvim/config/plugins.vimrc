@@ -24,4 +24,4 @@ autocmd FileType vue syntax sync fromstart
 let g:vue_disable_pre_processors=1
 
 " Pyenv
-let g:python3_host_prog= '/Users/solderneer/.pyenv/versions/py3nvim/bin/python'
+let g:python3_host_prog='/Users/shan/.pyenv/versions/neovim/bin/python'
