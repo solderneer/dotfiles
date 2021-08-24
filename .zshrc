@@ -55,7 +55,6 @@ export PATH="$PATH":"/usr/local/opt/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/bin/nvim-osx64/bin"
 export PATH="$PATH":"/Users/solderneer/.local/bin"
-export CPATH=`xcrun --show-sdk-path`/usr/include
 
 alias ..="cd .."
 alias ...="cd ../.."
